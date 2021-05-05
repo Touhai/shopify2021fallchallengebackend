@@ -1,0 +1,26 @@
+{
+  "name": "shopify",
+  "version": "1.0.0",
+  "description": "a challenge project for shopify internship",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Touhai/shopify2021fallchallengebackend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Touhai/shopify2021fallchallengebackend/issues"
+  },
+  "homepage": "https://github.com/Touhai/shopify2021fallchallengebackend#readme",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.14.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
