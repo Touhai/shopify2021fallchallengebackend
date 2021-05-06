@@ -2,15 +2,15 @@
   "name": "shopify",
   "version": "1.0.0",
   "description": "a challenge project for shopify internship",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Touhai/shopify2021fallchallengebackend.git"
   },
-  "author": "",
+  "author": "Bryan Kou",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Touhai/shopify2021fallchallengebackend/issues"
