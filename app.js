@@ -11,17 +11,6 @@ require('dotenv').config()
 const app = express();
 const port = 3000;
 
-const fileStorageEngine = multer.diskStorage({
-    destination:(req,file,cb) =>{
-        cb(null, './images')
-    },
-    filename:(req,file,cb) =>{
-        cb(null,file.originalname)
-    }
-})
-
-const upload = multer({storage: fileStorageEngine})
-
 //Enable CORS
 app.use(cors());
 

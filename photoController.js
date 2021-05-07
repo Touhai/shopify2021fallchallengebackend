@@ -32,3 +32,8 @@ exports.postPhoto = function (req, res) {
     })
 
 }
+
+exports.handleFileUpload = function (req,res){
+    console.log(req.file);
+    res.send("Single fild upload success");
+}
