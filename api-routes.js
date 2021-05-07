@@ -15,4 +15,4 @@ router.route('/photo').get(photoController.index);
 router.route('/photo/:title/:fileName/:filePath/:visible').post(photoController.postPhoto);
 
 
-module.exports = router;
+module.exports = router;44444444444

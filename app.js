@@ -2,12 +2,25 @@ const express = require('express');
 const apiRoutes = require("./api-routes");
 const mongoose = require("mongoose");
 const cors = require('cors');
+const multer = require('multer');
 require('dotenv').config()
+
 
 
 
 const app = express();
 const port = 3000;
+
+const fileStorageEngine = multer.diskStorage({
+    destination:(req,file,cb) =>{
+        cb(null, './images')
+    },
+    filename:(req,file,cb) =>{
+        cb(null,file.originalname)
+    }
+})
+
+const upload = multer({storage: fileStorageEngine})
 
 //Enable CORS
 app.use(cors());
@@ -18,7 +31,7 @@ const URI = process.env.DB_URI;
 
 
 app.get('/', (req, res) => {
-    res.send("Server is up uwu!");
+    res.sendFile(__dirname + '/index.html');
 })
 
 app.listen(port, () => {
