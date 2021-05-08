@@ -55,6 +55,6 @@ exports.handleFileUpload = function (req, res) {
         })
     } finally {
         //clean up the cache folder
-        fsExtra.emptyDirSync('./images')
+      //  fsExtra.emptyDirSync('./images')
     }
 }
