@@ -20,9 +20,15 @@ exports.validate = function(filePath){
     const sizeLimit = 10000000;
     const stats = fs.statSync(filePath);
     const fileExtension = filePath.split(".").pop();
-    return allowedExtensions.includes(fileExtension) && stats.size <= sizeLimit;
-}   
+    if(!allowedExtensions.includes(fileExtension)){
+        throw "Not valid file extension";
+    }
+    if(stats.size > sizeLimit){
+        throw "Exceeded Size";
+    }
 
+     
+}   
 
 /*
     @param {String} filePath    Path to the file
@@ -32,7 +38,7 @@ exports.upload = function (filePath){
     let uploadParams = {Bucket: BUCKET_NAME, Key:'',Body:''};
     let fileStream = fs.createReadStream(filePath);
     fileStream.on('error', function(err){
-        console.log("File error", err);
+        throw err;
     });
     uploadParams.Body = fileStream;
     uploadParams.Key = path.basename(filePath);
@@ -44,7 +50,7 @@ exports.upload = function (filePath){
                 reject(err);
             } else if (data){
                 console.log("Uploaded to", data.Location)
-                resolve("Uploaded")
+                resolve(data.Location)
             }
         })
     })

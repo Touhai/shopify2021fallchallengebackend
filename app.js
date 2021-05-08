@@ -2,7 +2,6 @@ const express = require('express');
 const apiRoutes = require("./api-routes");
 const mongoose = require("mongoose");
 const cors = require('cors');
-const multer = require('multer');
 require('dotenv').config()
 
 

@@ -1,6 +1,8 @@
 // API Backend for photocontroller
 
 const PhotoModel = require('./dataModel');
+const fileUpload = require('./fileUpload');
+const fsExtra = require('fs-extra');
 
 
 exports.index = function (req, res) {
@@ -11,7 +13,7 @@ exports.index = function (req, res) {
 
 exports.postPhoto = function (req, res) {
 
-    // Creates a document that 
+    // Creates a document that creates metadata for the file.
     const doc = new PhotoModel({
         title: req.params.title,
         fileName: req.params.fileName,
@@ -23,7 +25,7 @@ exports.postPhoto = function (req, res) {
         res.json({
             message: "Image uploaded!",
             url: "your link to the image",
-            data:data,
+            data: data,
         })
     }).catch((err) => {
         res.json({
@@ -33,7 +35,26 @@ exports.postPhoto = function (req, res) {
 
 }
 
-exports.handleFileUpload = function (req,res){
+exports.handleFileUpload = function (req, res) {
     console.log(req.file);
-    res.send("Single fild upload success");
+    try {
+        fileUpload.validate(req.file.path)
+        fileUpload.upload(req.file.path).then((imageURL) => {
+            console.log(imageURL);
+            res.status(200).send({
+                image: imageURL,
+            });
+        }).catch((e) => {
+            res.status(400).send({
+                error: e,
+            });
+        });
+    } catch (e) {
+        res.status(400).send({
+            error: e,
+        })
+    } finally {
+        //clean up the cache folder
+        fsExtra.emptyDirSync('./images')
+    }
 }
