@@ -23,9 +23,9 @@ router.get('/', function(req,res){
 const photoController = require('./photoController');
 
 //Importing routes
-router.route('/photo').get(photoController.index);
-router.route('/photo/:title/:fileName/:filePath/:visible').post(photoController.postPhoto);
+router.route('/photo/:id').get(photoController.getPhoto);
 router.route('/upload').post(upload.single("image"),photoController.handleFileUpload);
+
 
 
 module.exports = router;
