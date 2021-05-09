@@ -15,9 +15,7 @@ exports.getPhoto = function (req, res) {
                 error:err
             });
         }else{
-            res.status(400).send({
-                data:data[0].path,
-            })
+            res.status(200).send(data[0].path);
         }
     })
  
