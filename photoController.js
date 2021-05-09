@@ -15,7 +15,10 @@ exports.getPhoto = function (req, res) {
                 error:err
             });
         }else{
-            res.status(200).send(data[0].path);
+            res.status(200).send({
+                link:data[0].path,
+                instructions:"Copy the link to the brower to download the file"
+            });
         }
     })
  
