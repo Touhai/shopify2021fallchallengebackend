@@ -40,10 +40,19 @@ exports.handleFileUpload = function (req, res) {
     try {
         fileUpload.validate(req.file.path)
         fileUpload.upload(req.file.path).then((imageURL) => {
-            console.log(imageURL);
-            res.status(200).send({
-                image: imageURL,
-            });
+            const doc = new PhotoModel({
+                path: imageURL,
+            })
+
+            doc.save().then((data) => {
+                res.status(200).send({
+                    data: data,
+                });
+            }).catch((e) => {
+                res.status(400).send({
+                    error: e
+                })
+            })
         }).catch((e) => {
             res.status(400).send({
                 error: e,
@@ -55,6 +64,6 @@ exports.handleFileUpload = function (req, res) {
         })
     } finally {
         //clean up the cache folder
-      //  fsExtra.emptyDirSync('./images')
+        //  fsExtra.emptyDirSync('./images')
     }
 }
