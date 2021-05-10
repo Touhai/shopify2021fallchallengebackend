@@ -16,6 +16,6 @@
 
 | Endpoint        |Example| Description  |
 | ------------- |-------------| -----|
-|(GET) /photo/:id  | /photo/:id | Returns the S3 link to the image you uploaded. |
+|(GET) /photo/:id  | http://ec2-35-175-248-159.compute-1.amazonaws.com:3000/api/photo/6098bbee0d260b10e1a57a94 | Returns the S3 link to the image you uploaded. |
 |(POST) /upload  | /upload     |   Uploads an image to S3.
 
