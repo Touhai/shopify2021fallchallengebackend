@@ -16,7 +16,6 @@
 
 | Endpoint        |Example| Description  |
 | ------------- |-------------| -----|
-|
-(GET) /photo/:id     | /photo/:id | Returns the S3 link to the image you uploaded.  |
-(POST) /upload  | /upload     |   Uploads an image to S3.
+|(GET) /photo/:id  | /photo/:id | Returns the S3 link to the image you uploaded. |
+|(POST) /upload  | /upload     |   Uploads an image to S3.
 
