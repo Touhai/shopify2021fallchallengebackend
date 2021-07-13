@@ -20,7 +20,7 @@ router.get('/', function(req,res){
 
 
 //Importing controller
-const photoController = require('./photoController');
+const photoController = require('../controllers/photoController');
 
 //Importing routes
 router.route('/photo/:id').get(photoController.getPhoto);

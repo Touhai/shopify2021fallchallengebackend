@@ -1,7 +1,7 @@
 // API Backend for photocontroller
 
-const PhotoModel = require('./dataModel');
-const fileUpload = require('./fileUpload');
+const PhotoModel = require('../models/dataModel');
+const fileUpload = require('../fileUpload');
 const fsExtra = require('fs-extra');
 
 
